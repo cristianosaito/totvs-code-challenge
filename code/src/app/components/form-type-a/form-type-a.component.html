@@ -1,0 +1,17 @@
+<div id="form-type-a">
+    <h2>Comments</h2>
+    <form action="post" (ngSubmit)="enviar()" [formGroup]="form">
+        <label for="name"> Name</label>
+        <input type="text" id="name" name="name" formControlName="name" [(ngModel)]="name" required>
+
+        <label for="comment">Comments</label>
+        <textarea formControlName="comment" id="comment"></textarea>
+
+    
+        <button [disabled]="!form.valid" type="submit">Submit</button>
+    </form>
+
+    <p  *ngIf="form.invalid && (form.dirty || form.touched)">
+        Form Status: {{ form.status }}
+    </p>
+</div>

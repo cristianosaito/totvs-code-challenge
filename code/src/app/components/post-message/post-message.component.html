@@ -1,3 +1,14 @@
-<div class="post-message" [ngClass]="{visible: isOpen}">
-  content
+<div class="post-message">
+  <div class="container">
+    <p class="close" (click)="close()">X</p>
+    <h2>Choose your Form:</h2>
+   <button (click)="showFormA()">Comments</button>
+    <button (click)="showFormB()">Pitch</button>
+  
+     <app-form-type-a *ngIf="formA" [name]="name"></app-form-type-a>
+    <app-form-type-b *ngIf="formB" [name]="name"></app-form-type-b>
+
+
+  </div>
+ 
 </div>

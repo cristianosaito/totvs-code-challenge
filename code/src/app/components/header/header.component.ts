@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MessageProvider } from '../../message.provider';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +15,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   messagesCount: number;
 
   constructor(
-    private messageProvider: MessageProvider
+    private messageProvider: MessageProvider,
+    private router:Router,
+
   ) { }
 
   ngOnInit() {
@@ -28,7 +31,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   postMessage() {
-    this.messageProvider.postMessage$.next();
+    //this.messageProvider.postMessage$.next();
+    this.router.navigateByUrl('/message');
   }
+
 
 }

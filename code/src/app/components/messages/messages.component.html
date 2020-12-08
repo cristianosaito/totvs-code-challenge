@@ -1,13 +1,27 @@
-<div class="card" *ngFor="let message of messages">
-  <div class="card__avatar">
-    <img
-      src="http://placehold.it/100x100"
-      alt="User Name?"
-    />
-  </div>
-  <div class="card__content">
-    <p class="card__message">{{message.text}}</p>
-    <p class="card__origin">@{{message.username}} - {{message.date | date:'short'}}</p>
-    <p class="card__name">[User Name]</p>
-  </div>
+<router-outlet></router-outlet>
+
+<div class="col-2">
+    <ul>
+        <li>
+            <button (click)="showUsers()">Users</button>
+        </li>
+        <li>
+            <button (click)="showMessages()">Messages</button>
+        </li>
+        <li>
+            <button (click)="showPitches()">Pitches</button>
+        </li>
+        <li>
+            <button (click)="postMessage()">Post a Message</button>
+        </li>
+    </ul>
 </div>
+<div class="col-6">
+    <app-list-users *ngIf="showUserList"></app-list-users>
+    <app-list-messages *ngIf="showMsgList"></app-list-messages>
+    <app-list-pitchs *ngIf="showPitchList"></app-list-pitchs>
+</div>
+
+
+
+

@@ -1,0 +1,22 @@
+<div class="card" *ngFor="let message of messages">
+    <div class="card__content">
+      <div class="card__header">
+        <h2>{{message.type}}</h2>
+      </div>
+      <div class="col-3">
+        <div class="card__avatar" *ngIf="message.avatar">
+          <img src={{message.avatar}} alt="User Name?" />
+        </div>
+      </div>
+      <div class="col-7">
+        <p class="card__message">{{message.text}}</p>    
+        <p class="card__name"><b>Company name: </b>{{message.companyName}}</p>
+        <p class="card__name"><b>Evaluation: </b>{{message.evaluation}}</p>
+        <p class="card__name"><b>Share Percent: </b>{{message.offerSharesPercent}}</p>
+        <p class="card__name"><b>Share Price: </b>{{message.offerSharesPrice}}</p>
+        <p class="card__origin" (click)="select($event)" name={{message.username}}><b>Posted By: </b>@{{message.username}} - {{message.date | date:'short'}}</p>
+      </div>
+    </div>
+  </div>
+
+

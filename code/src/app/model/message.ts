@@ -1,8 +1,14 @@
 
 export interface Message {
+  type?: string;
   text?: string;
   date?: Date;
-  user?: MessageUser;
+  username?: MessageUser;
+  companyName?:string;
+  evaluation?: number,
+  offerSharesPercent?: number,
+  offerSharesPrice?:string,
+  avatar?:string
 }
 
 export interface MessageUser {
@@ -10,3 +16,6 @@ export interface MessageUser {
   username: string;
   avatar: string;
 }
+
+
+

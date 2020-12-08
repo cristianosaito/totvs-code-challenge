@@ -1,0 +1,33 @@
+<div id="form-type-a">
+    <h2>Pitch</h2>
+    <form action="post" (ngSubmit)="enviar()" [formGroup]="form">
+        <label for="name"> Name</label>
+        <input type="text" id="name" name="name" formControlName="name" required [(ngModel)]="name">
+
+        <label for="companyName"> Company Name</label>
+        <input type="text" id="companyName" name="companyName" formControlName="companyName" required>
+
+        <label for="companyEvaluation"> Company Evaluation</label>
+        <br/>
+
+        <input type="number" min="0" id="companyEvaluation" name="companyEvaluation" formControlName="companyEvaluation" required [(ngModel)]="companyValue" (change)="setPrice()">
+        <br/>
+
+        <label for="shareOffering">Shares Offering : {{sliderValue}} %</label>
+        <br/>
+        <input class="slider" type="range" min="0" max="100" value="50" class="slider" formControlName="shareOffering" id='shareOffering' [(ngModel)]="sliderValue" (change)="setPrice()">
+        <br/>
+
+        <label for="sharePrice"> Price for the amount of shares</label>
+        <input type="text" id="sharePrice" name="sharePrice" formControlName="sharePrice" >
+
+        <label for="comment">Comments</label>
+        <textarea formControlName="comment" id="comment"></textarea>
+    
+        <button [disabled]="!form.valid" type="submit">Submit</button>
+       <br/>
+    </form>
+    <p  *ngIf="form.invalid && (form.dirty || form.touched)">
+        Form Status: {{ form.status }}
+    </p>
+</div>

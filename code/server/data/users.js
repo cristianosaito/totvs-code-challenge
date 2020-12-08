@@ -1,7 +1,7 @@
 const users = [
   {
     name: 'LaBeouf',
-    username: 'labeauf',
+    username: 'labeouf',
     avatar: 'https://i.pravatar.cc/100?img=11'
   },
   {
